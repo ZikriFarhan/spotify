@@ -34,9 +34,11 @@ function App() {
 getDataAndRender();
   },[]);
 
-  return (
-  <body>
-      
+  if(data.album === undefined){
+    return <h1>loading</h1>
+  };
+
+  return (    
     
     <div className="App">
       <div className="wrapper">
@@ -61,7 +63,7 @@ getDataAndRender();
         </div>
       </div>
     </div>
-  </body>
+  
   );
 }
 
