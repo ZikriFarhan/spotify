@@ -1,12 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
-// import Button from "./components/button";
+import Data from "./components/data";
+import {AlbumImage, AlbumDesc, AlbumName, ButtonSelect,} from "./components/index.js";
 
-
-const Button = () => {
-  return <button>Select</button>;
-};
 
 // export default Button;
 
@@ -49,14 +46,14 @@ getDataAndRender();
             <div className="card-list">
               <div className="card">
                 <div className="container-playlist">
-                  <img id="images" alt="Avatar" src={data.album.images[0].url} style={{width:"50%"}} />
+                  <AlbumImage src={data.album.images[0].url}/>
                   <h4 id="title">
                     <b></b>
                   </h4>
-                  <p>{data.name}</p>
-                  <p>{data.album.artists[0].name}</p>                 
+                  <AlbumName name={data.album.name} artist={data.artists.name}
+                  singer={data.album.artists[0].name}></AlbumName>                
                 </div>
-                <Button/>
+                <ButtonSelect/>
               </div>
             </div>
           </div>
