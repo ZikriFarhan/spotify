@@ -2,20 +2,25 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Data from "./components/data/data";
-import {AlbumImage, AlbumDesc, AlbumName, ButtonSelect,} from "./components/index.js";
+import {
+  AlbumImage,
+  AlbumDesc,
+  AlbumName,
+  ButtonSelect,
+} from "./components/index.js";
 import ObjectLoop from "./components/trek";
-
+import { Routes, Route } from "react-router-dom";
+import WebApp from "./components/implctgrant/App";
 // export default Button;
 
 // Instantiate Spotify API wrapper
-let spotifyApi = new SpotifyWebApi();
-let spotifyToken = window.localStorage.getItem("token");
-if (spotifyToken) {
-  spotifyApi.setAccessToken(spotifyToken);
-}
+// let spotifyApi = new SpotifyWebApi();
+// let spotifyToken = window.localStorage.getItem("token");
+// if (spotifyToken) {
+//   spotifyApi.setAccessToken(spotifyToken);
+// }
 
 function App() {
-
   // const [songs, setSongs] = useState(1);
   // const [artists, setArtists] = useState(1);
   // const [albums, setAlbums] = useState(1);
@@ -58,12 +63,15 @@ function App() {
   //   );
   // };
 
-  return (    
-    
+  return (
     <div className="App">
-      <ObjectLoop/>
+      <input type="text" label="seacrh your song" />
+      <button>search</button>
+      <Routes>
+        <Route path="/login" element={<WebApp />}></Route>
+        <Route path="/dashboard" element={<ObjectLoop />}></Route>
+      </Routes>
     </div>
-  
   );
 }
 
