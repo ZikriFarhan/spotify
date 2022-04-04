@@ -6,7 +6,7 @@ import Playlist from "../../App";
 
 const CLIENT_ID = "8fcafec009584d4b860fe4122703bda9"; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
-const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3001/dashboard";
+const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3000/dashboard";
 const SCOPES = "playlist-modify-private";
 
 /* 
