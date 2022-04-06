@@ -57,7 +57,7 @@ const ObjectLoop = () => {
   );
 };
 
-export default ObjectLoop;
+export { ObjectLoop, TrekAlbum };
 
 // function Albums() {
 //   const [token, setToken] = useState("");

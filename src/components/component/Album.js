@@ -1,9 +1,11 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
 import { ButtonLogin } from "../button";
 import { AlbumName, ButtonSelect } from "..";
+import { NavLink } from "react-router-dom";
+import CreatePlaylist from "../pages/CreatePlaylist";
+import { TrekAlbum } from "../trek";
 
-const TrekAlbum = { name, album, images, songTitle, artist };
 // data = Array.from(data)
 function Albums() {
   const [token, setToken] = useState("");
@@ -46,7 +48,7 @@ function Albums() {
   const getDataAndRender = async (e) => {
     e.preventDefault();
     const data = await fetch(
-      `https://api.spotify.com/v1/search?q=${name}&type=album`,
+      `https://api.spotify.com/v1/search?q=${name}&type=track`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -55,9 +57,9 @@ function Albums() {
     ).then((response) => response.json());
     // .then((data) => console.log(data.albums.items));
 
-    setData(data.albums.items);
+    setData(data.tracks.items);
+    console.log(data);
   };
-  console.log(data);
 
   return (
     <div className="wrapper">
@@ -71,6 +73,11 @@ function Albums() {
           />
           <button type="submit">Search</button>
         </form>
+        <div className="crt-playlist">
+          <NavLink to="/createplaylist">
+            <button onClick={() => <CreatePlaylist />}>Create Playlist</button>
+          </NavLink>
+        </div>
         <div className="bungkus">
           <h1>Now Playing</h1>
           {data &&
@@ -85,14 +92,31 @@ function Albums() {
                           <b>{v.album_type}</b>
                         </h4>
                         <AlbumName
-                          name={name}
-                          artist={album}
-                          songTitle={songTitle}
+                          name={v.name}
+                          artist={v.artists[0].name}
+                          songTitle={v.type}
                         ></AlbumName>
                       </div>
                     </div>
                   </div>
-                  <ButtonSelect />
+                  <div>
+                    {selected.includes(v.uri) ? (
+                      <button
+                        className="selected"
+                        onClick={() => handleDelete(v.uri)}
+                      >
+                        Selected
+                      </button>
+                    ) : (
+                      <button
+                        className="select"
+                        onClick={() => handleSelect(v.uri)}
+                      >
+                        Select
+                      </button>
+                    )}
+                  </div>
+                  {/* <ButtonSelect /> */}
                 </>
               );
             })}

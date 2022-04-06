@@ -11,6 +11,8 @@ import {
 import ObjectLoop from "./components/trek";
 import { Routes, Route } from "react-router-dom";
 import WebApp from "./components/implctgrant/App";
+import CreatePlaylist from "./components/pages/CreatePlaylist";
+import Albums from "./components/component/Album";
 // export default Button;
 
 // Instantiate Spotify API wrapper
@@ -65,11 +67,10 @@ function App() {
 
   return (
     <div className="App">
-      <input type="text" label="seacrh your song" />
-      <button className="id">search</button>
       <Routes>
         <Route path="/login" element={<WebApp />}></Route>
-        <Route path="/dashboard" element={<ObjectLoop />}></Route>
+        <Route path="/dashboard" element={<Albums />}></Route>
+        <Route path="/createplaylist" element={<CreatePlaylist />}></Route>
       </Routes>
     </div>
   );
