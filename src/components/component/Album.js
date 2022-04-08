@@ -8,30 +8,16 @@ import { TrekAlbum } from "../trek";
 
 // data = Array.from(data)
 function Albums() {
-  const [token, setToken] = useState("");
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [selected, setSelected] = useState("");
 
-  useEffect(() => {
-    const hash = window.location.hash;
-    let token = window.localStorage.getItem("token");
-
-    // getToken()
-
-    if (!token && hash) {
-      token = hash
-        .substring(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("=")[1];
-
-      window.location.hash = "";
-      window.localStorage.setItem("token", token);
-    }
-
-    setToken(token);
-  }, []);
+  const [token] = useState(
+    window.location.hash
+      .substring(1, window.location.hash.length - 1)
+      .split("&")[0]
+      .split("=")[1]
+  );
 
   const handleSelect = (uri) => {
     setSelected([...selected, uri]);
@@ -58,8 +44,8 @@ function Albums() {
     // .then((data) => console.log(data.albums.items));
 
     setData(data.tracks.items);
-    console.log(data);
   };
+  console.log(data);
 
   return (
     <div className="wrapper">
@@ -87,7 +73,7 @@ function Albums() {
                   <div className="card-list">
                     <div className="card">
                       <div className="container-playlist">
-                        <img src={v.images[0].url} alt="" />
+                        <img src={v.album.images[0].url} alt="" />
                         <h4 id="title">
                           <b>{v.album_type}</b>
                         </h4>
