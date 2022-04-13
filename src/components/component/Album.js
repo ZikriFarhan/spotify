@@ -5,6 +5,7 @@ import { AlbumName, ButtonSelect } from "..";
 import { NavLink } from "react-router-dom";
 import CreatePlaylist from "../pages/CreatePlaylist";
 import { TrekAlbum } from "../trek";
+import "../../App.css";
 
 // data = Array.from(data)
 function Albums() {

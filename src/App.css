@@ -54,7 +54,7 @@ body {
   text-align: center;
   padding: 10px 50px;
   border-style: inset;
-  height: 400px;
+  height: auto;
   width: 800px;
   align-items: center;
   display: flex;
@@ -133,16 +133,17 @@ img {
   padding: 10px 10px;
   border-style: inset;
   border-radius: 10px;
-  width: 150px;
+  width: 300px;
   margin-right: 20px;
   margin: auto;
+  display: flex;
 }
 
 
 .card-list {
   display: flex;
   justify-content: center;
-  
+  flex-direction: row;
 }
 
 h4 {
