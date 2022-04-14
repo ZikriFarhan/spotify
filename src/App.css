@@ -50,7 +50,6 @@ body {
   background-color: rgba(40, 44, 52, 0.8);
   
   position: relative;
-  padding: 0px 10px;
   text-align: center;
   padding: 10px 50px;
   border-style: inset;
@@ -69,7 +68,9 @@ h1 {
   animation-iteration-count: infinite;
 }
 
-
+.button-select{
+  margin: -30px 0px -10px 0px;
+}
 
 @keyframes example {
   from {
@@ -130,20 +131,38 @@ img {
 .container-playlist {
   background-image: url("img/2042.jpg");
   text-align: center;
-  padding: 10px 10px;
+  padding: 10px 0px;
   border-style: inset;
   border-radius: 10px;
-  width: 300px;
+  width: 100%;
   margin-right: 20px;
   margin: auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.title-song{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-height: 35px;
+  width: 100%;
+}
 
 .card-list {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  
+}
+
+.card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  /* flex-wrap:wrap;
+  justify-content:; */
 }
 
 h4 {

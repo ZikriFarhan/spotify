@@ -65,44 +65,44 @@ function Albums() {
             <button onClick={() => <CreatePlaylist />}>Create Playlist</button>
           </NavLink>
         </div>
-        <div className="bungkus">
-          <h1>Now Playing</h1>
+        <h1>Now Playing</h1>
+        <div className="card">
           {data &&
             data.map((v, index) => {
               return (
                 <>
                   <div className="card-list">
-                    <div className="card">
-                      <div className="container-playlist">
-                        <img src={v.album.images[0].url} alt="" />
-                        <h4 id="title">
-                          <b>{v.album_type}</b>
-                        </h4>
-                        <AlbumName
-                          name={v.name}
-                          artist={v.artists[0].name}
-                          songTitle={v.type}
-                        ></AlbumName>
+                    <div className="container-playlist">
+                      <img src={v.album.images[0].url} alt="" />
+                      <h4 id="title">
+                        <b>{v.album_type}</b>
+                      </h4>
+                      <AlbumName
+                        name={v.name}
+                        artist={v.artists[0].name}
+                        songTitle={v.type}
+                      ></AlbumName>
+
+                      <div className="button-select">
+                        {selected.includes(v.uri) ? (
+                          <button
+                            className="selected"
+                            onClick={() => handleDelete(v.uri)}
+                          >
+                            Selected
+                          </button>
+                        ) : (
+                          <button
+                            className="select"
+                            onClick={() => handleSelect(v.uri)}
+                          >
+                            Select
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
-                  <div>
-                    {selected.includes(v.uri) ? (
-                      <button
-                        className="selected"
-                        onClick={() => handleDelete(v.uri)}
-                      >
-                        Selected
-                      </button>
-                    ) : (
-                      <button
-                        className="select"
-                        onClick={() => handleSelect(v.uri)}
-                      >
-                        Select
-                      </button>
-                    )}
-                  </div>
+
                   {/* <ButtonSelect /> */}
                 </>
               );

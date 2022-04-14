@@ -10,27 +10,26 @@ import {
 
 const TrekAlbum = ({ name, album, images, songTitle, artist }) => (
   <div className="wrapper">
+    <div className="page"></div>
     <div className="container">
-      <div className="bungkus">
-        <h1>Now Playing</h1>
+      <h1>Now Playing</h1>
 
-        <div className="card-list">
-          <div className="card">
-            <div className="container-playlist">
-              <img src={images} alt="" />
-              <h4 id="title">
-                <b></b>
-              </h4>
-              <AlbumName
-                name={name}
-                artist={album}
-                songTitle={songTitle}
-              ></AlbumName>
-            </div>
+      <div className="card-list">
+        <div className="card">
+          <div className="container-playlist">
+            <img src={images} alt="" />
+            <h4 id="title">
+              <b></b>
+            </h4>
+            <AlbumName
+              name={name}
+              artist={album}
+              songTitle={songTitle}
+            ></AlbumName>
           </div>
         </div>
-        <ButtonSelect />
       </div>
+      <ButtonSelect />
     </div>
   </div>
 );

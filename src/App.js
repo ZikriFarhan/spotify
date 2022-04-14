@@ -13,6 +13,9 @@ import { Routes, Route } from "react-router-dom";
 import WebApp from "./components/implctgrant/App";
 import CreatePlaylist from "./components/pages/CreatePlaylist";
 import Albums from "./components/component/Album";
+import { useDispatch } from "react-redux";
+import { setToken } from "./components/pages/reducer/slicer";
+import { connect } from "react-redux";
 // export default Button;
 
 // Instantiate Spotify API wrapper
@@ -23,52 +26,78 @@ import Albums from "./components/component/Album";
 // }
 
 function App() {
-  // const [songs, setSongs] = useState(1);
-  // const [artists, setArtists] = useState(1);
-  // const [albums, setAlbums] = useState(1);
-  // let placeholder = "https://cover.djpunjab.com/39659/300x700/Om-Namah-Shivaya-Mohan-Kannan.jpg";
-  // let updateResults = (searchString) => {
-  //   // Search songs
-  //   spotifyApi.searchTracks(searchString, { limit: 4, offset: 0 }).then(
-  //     function(data) {
-  //       console.log('Searched songs by "' + searchString + '"', data.body);
-  //       window.mySongs = data.body;
+  //setting auth 2
+  // const dispatch = useDispatch();
 
-  //       setSongs(data.body.tracks.items);
-  //     }, function(err) {
-  //       console.error(err);
+  // let accessToken = window.location.hash
+  //   .substring(1, window.location.hash.length - 1)
+  //   .split("&")[0]
+  //   .split("=")[1];
+
+  // if (accessToken) {
+  //   dispatch(setToken(accessToken));
+  // }
+
+  //setting auth 1
+  // class App extends Component {
+  //   componentDidMount() {
+  //     const hash = window.location.hash
+  //       .substring(1)
+  //       .split("&")
+  //       .reduce(function (initial, item) {
+  //         if (item) {
+  //           var parts = item.split("=");
+  //           initial[parts[0]] = decodeURIComponent(parts[1]);
+  //         }
+  //         return initial;
+  //       }, {});
+  //     let foundToken = hash.access_token;
+  //     if (foundToken) {
+  //       this.props.setToken(foundToken);
   //     }
-  //   );
+  //   }
 
-  //   // Search artists
-  //   spotifyApi.searchArtists(searchString, { limit: 4, offset: 0 }).then(
-  //     function(data) {
-  //       console.log('Searched artists by "' + searchString + '"', data.body);
-  //       window.myArtists = data.body;
-
-  //       setArtists(data.body.artists.items);
-  //     }, function(err) {
-  //       console.error(err);
+  //   isValidToken = () => {
+  //     if (this.props.state.token) {
+  //       return true;
   //     }
-  //   );
+  //   };
 
-  //   // Search albums
-  //   spotifyApi.searchAlbums(searchString, { limit: 4, offset: 0 }).then(
-  //     function(data) {
-  //       console.log('Searched albums by "' + searchString + '"', data.body);
-  //       window.myAlbums = data.body;
-
-  //       setAlbums(data.body.albums.items);
-  //     }, function(err) {
-  //       console.error(err);
-  //     }
+  //   render() {
+  //   return (
+  //     <>
+  //     <Router>
+  //       <Routes>
+  //       <Route  path="/" element={<WebApp/>} />
+  //       <Route  path="/dashboard" element={this.isValidToken() ? <Albums token={this.props.token}/> : <Navigate replace to ="/" />}/>
+  //       <Route  path="/createplaylist" element={this.isValidToken() ? <CreatePlaylist token={this.props.token}/> : <Navigate replace to ="/" />} />
+  //       <Route  path="*" element={<Auth/>} />
+  //       </Routes>
+  //     </Router>
+  //     </>
   //   );
+  // }
+  // }
+
+  // const mapStateToProps = (state) => {
+  //   return {
+  //     state,
+  //   };
   // };
+
+  // const mapDispatchToProps = (dispatch) => {
+  //   return {
+  //     setToken: (tokenText) =>
+  //       dispatch({ type: "SET_TOKEN", payload: tokenText }),
+  //   };
+  // };
+
+  // export default connect(mapStateToProps, mapDispatchToProps)(App);
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<WebApp />}></Route>
+        <Route path="/" element={<WebApp />}></Route>
         <Route path="/dashboard" element={<Albums />}></Route>
         <Route path="/createplaylist" element={<CreatePlaylist />}></Route>
       </Routes>
