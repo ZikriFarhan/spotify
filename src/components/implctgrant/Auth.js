@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Login from "../../pages/implicit_grant/App";
-import Home from "../../pages/home";
+import WebApp from "./App";
+import Albums from "../component/Album";
 
 class Auth extends Component {
   componentDidMount() {
@@ -27,7 +27,9 @@ class Auth extends Component {
   };
   render() {
     return (
-      <>{this.isValidToken() ? <Home token={this.props.token} /> : <Login />}</>
+      <>
+        {this.isValidToken() ? <Albums token={this.props.token} /> : <WebApp />}
+      </>
     );
   }
 }
