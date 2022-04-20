@@ -62,7 +62,7 @@ function Albums() {
         </form>
         <div className="crt-playlist">
           <NavLink to="/createplaylist">
-            <button onClick={() => <CreatePlaylist />}>Create Playlist</button>
+            <button onClick={() => <CreatePlaylist token={undefined} />}>Create Playlist</button>
           </NavLink>
         </div>
         <h1>Now Playing</h1>
