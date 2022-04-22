@@ -47,14 +47,12 @@ body {
 
 .container {
   margin: auto;
-  background-color: rgba(40, 44, 52, 0.8);
-  
   position: relative;
   text-align: center;
   padding: 10px 50px;
-  border-style: inset;
+  border-style: none;
   height: auto;
-  width: 800px;
+  width: 1000px;
   align-items: center;
   display: flex;
   flex-direction: column;

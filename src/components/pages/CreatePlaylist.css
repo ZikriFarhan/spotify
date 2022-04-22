@@ -1,0 +1,21 @@
+* {
+  text-decoration: none;
+}
+
+
+.main-container{
+  justify: center;
+  padding-right: 300px;
+}
+
+.box-create h1{
+ text-align : center;
+}
+
+form{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
