@@ -6,11 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./components/pages/reducer/store";
+import Home from "./components/pages/Home";
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <Home />
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

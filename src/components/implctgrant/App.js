@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Playlist from "../../App";
+import "../../App.css";
 import { useDispatch } from "react-redux";
 import { setToken } from "../pages/reducer/slicer";
 // import ObjectLoop from "../trek";
@@ -10,22 +10,6 @@ const CLIENT_ID = "8fcafec009584d4b860fe4122703bda9"; // insert your client id h
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
 const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3000/dashboard";
 const SCOPES = "playlist-modify-private";
-
-/* 
-http://localhost:3000/webapp#access_token=ABCqxL4Y&token_type=Bearer&expires_in=3600
-*/
-// const getReturnedParamsFromSpotifyAuth = (hash) => {
-//   const stringAfterHashtag = hash.substring(1);
-//   const paramsInUrl = stringAfterHashtag.split("&");
-//   const paramsSplitUp = paramsInUrl.reduce((accumulater, currentValue) => {
-//     console.log(currentValue);
-//     const [key, value] = currentValue.split("=");
-//     accumulater[key] = value;
-//     return accumulater;
-//   }, {});
-
-//   return paramsSplitUp;
-// };
 
 const WebApp = () => {
   const dispatch = useDispatch();

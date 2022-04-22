@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./CreatePlaylist.css";
 //menambahkan playlist
 function CreatePlaylist({ token }) {
   const [title, setTitle] = useState("");
@@ -37,7 +37,7 @@ function CreatePlaylist({ token }) {
   };
   console.log(token);
   return (
-    <div className="container-create">
+    <div className="main-container">
       <div className="kotak-create">
         <div className="box-create">
           <h1>Create Playlist</h1>
