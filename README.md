@@ -35,7 +35,7 @@ Create file with name .env and add this component:
     ```
     npm start
     ``` 
-## Features
+## Author
 <b>Muhammad Dzikrullah Farhan<b>
 
 
